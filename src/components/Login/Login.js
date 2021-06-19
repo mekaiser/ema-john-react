@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { useContext } from 'react';
-import { UserContext } from '../../App';
+import React, { useContext, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { initializeLoginFramework, handleGoogleSignIn, handleSignOut, handleFbSignIn, createUserWithEmailAndPassword, signInWithEmailAndPassword } from './loginManager';
+import { UserContext } from '../../App';
+import { createUserWithEmailAndPassword, handleFbSignIn, handleGoogleSignIn, handleSignOut, initializeLoginFramework, signInWithEmailAndPassword } from './loginManager';
 
 
 
