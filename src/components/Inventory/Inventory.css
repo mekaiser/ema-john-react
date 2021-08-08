@@ -1,0 +1,33 @@
+.inventory-div {
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+.inventory-div .text-input {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid #c2c0dd;
+  outline: none;
+  border-radius: 0.2rem;
+  height: 2.5rem;
+  max-width: 30rem;
+  width: 70%;
+  display: block;
+}
+.product-image-input {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+.add-product-btn {
+  margin-left: 1rem;
+  background-color: #ffa14a;
+  width: 150px;
+  height: 35px;
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.add-product-btn:hover {
+  color: white;
+  background-color: #5b58ed;
+}

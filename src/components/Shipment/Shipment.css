@@ -1,14 +1,39 @@
-.ship-form{
-    margin:30px 100px;
+.ship-form {
+  margin: 2rem 2rem;
 }
 .ship-form input {
-    display: block;
-    margin-top: 30px;
-    padding: 5px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    width: 300px;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid #c2c0dd;
+  outline: none;
+  border-radius: 0.2rem;
+  height: 2.5rem;
+  max-width: 30rem;
+  width: 70%;
 }
-.error{
-    color: red;
+.shipment-submit-btn,
+.pay-btn {
+  background-color: #ffa14a;
+  width: 150px;
+  height: 30px;
+  border: none !important;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.shipment-submit-btn:hover,
+.pay-btn:hover {
+  color: white;
+  background-color: #5b58ed;
+}
+.error {
+  margin-left: 0.5rem;
+  color: tomato;
+}
+.payment-div {
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+.pay-btn {
+  margin-top: 1rem;
 }

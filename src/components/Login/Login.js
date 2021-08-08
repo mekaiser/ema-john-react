@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../App';
+import './Login.css';
 import { createUserWithEmailAndPassword, handleFbSignIn, handleGoogleSignIn, handleSignOut, initializeLoginFramework, signInWithEmailAndPassword } from './loginManager';
 
 
@@ -85,15 +86,13 @@ function Login() {
     e.preventDefault();
   }
 
-
-
   return (
-    <div style={{textAlign: 'center'}}>
+    <div className="login-div" style={{textAlign: 'center'}}>
       { user.isSignedIn ? <button onClick={signOut}>Sign Out</button> :
-        <button onClick={googleSignIn}>Sign In</button>
+        <button className="btn google-sign-in-btn" onClick={googleSignIn}>Sign In using Google</button>
       }
       <br/>
-      <button onClick={fbSignIn}>Sign in using Facebook</button>
+      <button className="btn fb-sign-in-btn" onClick={fbSignIn}>Sign in using Facebook</button>
       {
         user.isSignedIn && <div>
           <p>Welcome, {user.name}!</p>
@@ -101,18 +100,17 @@ function Login() {
           <img src={user.photo} alt=""/>
         </div>
       }
-
-      <h1>Our own Authentication</h1>
+      <br />
       <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id=""/>
-      <label htmlFor="newUser">New User Sign up</label>
+      <label style={{marginLeft: "0.5rem"}} htmlFor="newUser">New User Sign up</label>
       <form onSubmit={handleSubmit}>
-        {newUser && <input name="name" type="text" onBlur={handleBlur} placeholder="Your name"/>}
+        {newUser && <input className="login-input" name="name" type="text" onBlur={handleBlur} placeholder="Your name"/>}
         <br/>
-        <input type="text" name="email" onBlur={handleBlur} placeholder="Your Email address" required/>
+        <input className="login-input" type="text" name="email" onBlur={handleBlur} placeholder="Your Email address" required/>
         <br/>
-        <input type="password" name="password" onBlur={handleBlur} placeholder="Your Password" required/>
+        <input className="login-input" type="password" name="password" onBlur={handleBlur} placeholder="Your Password" required/>
         <br/>
-        <input type="submit" value={newUser ? 'Sign up' : 'Sign in'}/>
+        <input className="btn new-user-login-submit-btn" type="submit" value={newUser ? 'Sign up' : 'Sign in'}/>
       </form>
       <p style={{color: 'red'}}>{user.error}</p>
       { user.success && <p style={{color: 'green'}}>User { newUser ? 'created' : 'Logged In'} successfully</p>}

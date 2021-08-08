@@ -1,9 +1,10 @@
 import React from 'react';
+import './Cart.css';
 
 
 const Cart = (props) => {
     const cart = props.cart;
-    //console.log(cart);
+    console.log("cart here",cart);
     //const total = cart.reduce( (total, prd) => total + prd.price , 0 )
     let total = 0;
     for(let i = 0; i< cart.length; i++){
@@ -30,13 +31,13 @@ const Cart = (props) => {
         return Number(precision);
     }
     return (
-        <div>
+        <div className="order-summary-div">
             <h4>Order Summary</h4>
             <p>Items Ordered: {cart.length}</p>
             <p>Product Price: {formatNumber(total)}</p>
-            <p><small>Shiiping Cost: {shipping}</small></p>
-            <p><small>Tax + VAT: {tax}</small></p>
-            <p>Total Price: {grandTotal}</p>
+            <p>Shiiping Cost: {shipping}</p>
+            <p>Tax + VAT: {tax}</p>
+            <p style={{fontWeight: "600", color: "#FA7630"}}>Total Price: {grandTotal}</p>
             <br/>
             {
                 props.children

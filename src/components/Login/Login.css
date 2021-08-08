@@ -1,0 +1,27 @@
+.login-div {
+  margin-top: 2rem;
+}
+.google-sign-in-btn {
+  background-color: #d34e5d;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+.fb-sign-in-btn {
+  background-color: #5b58ed;
+  color: white;
+  margin-bottom: 1rem;
+}
+.login-input {
+  border: 2px solid #c2c0dd;
+  outline: none;
+  border-radius: 0.2rem;
+  height: 2.5rem;
+  max-width: 15rem;
+  width: 70%;
+  margin-bottom: 1rem;
+}
+.new-user-login-submit-btn {
+  background-color: #ffa14a;
+  color: white;
+  margin-bottom: 1rem;
+}

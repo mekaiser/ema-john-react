@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-    addToDatabaseCart,
-    getDatabaseCart
+  addToDatabaseCart,
+  getDatabaseCart
 } from "../../utilities/databaseManager";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
@@ -11,12 +11,14 @@ import "./Shop.css";
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  const [itemTosearch, setItemToSearch] = useState("");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("http://localhost:5000/products?search=" + search)
       .then((res) => res.json())
       .then((data) => setProducts(data));
-  }, []);
+  }, [search]);
 
   useEffect(() => {
     const savedCart = getDatabaseCart();
@@ -27,8 +29,24 @@ const Shop = () => {
       body: JSON.stringify(productKeys),
     })
       .then((res) => res.json())
-      .then((data) => setCart(data));
+      .then((data) => {
+        const cartProducts = productKeys.map((key) => {
+          const product = data.find((product) => product.key === key);
+          product.quantity = savedCart[key];
+          return product;
+        });
+        console.log("cartProducts",cartProducts);
+        setCart(cartProducts);
+      });
   }, []);
+
+  const handleSetSearch = (event) => {
+    setItemToSearch(event.target.value);
+  };
+
+  const handleSearch = () => {
+    setSearch(itemTosearch);
+  };
 
   const handleAddProduct = (product) => {
     const toBeAddedKey = product.key;
@@ -44,6 +62,7 @@ const Shop = () => {
       product.quantity = 1;
       newCart = [...cart, product];
     }
+    console.log(newCart);
     setCart(newCart);
     addToDatabaseCart(product.key, count);
   };
@@ -51,6 +70,18 @@ const Shop = () => {
   return (
     <div className="twin-container">
       <div className="product-container">
+        <div className="input-div">
+          <input
+            placeholder="search"
+            type="text"
+            onBlur={handleSetSearch}
+            className="product-search"
+          />
+          <button className="btn search-btn" onClick={handleSearch}>
+            Search
+          </button>
+        </div>
+        {products.length === 0 && <p>Loading.........</p>}
         {products.map((pd) => (
           <Product
             key={pd.key}

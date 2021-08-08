@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 import logo from '../../images/logo.png';
 import './Header.css';
-import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import { UserContext } from '../../App';
 
 const Header = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -15,6 +14,8 @@ const Header = () => {
                 <Link to="/review">Order Review</Link>
                 <Link to="/inventory">Manage Inventory</Link>
                 <button onClick={() => setLoggedInUser({})}>Sign out</button>
+                {loggedInUser.email && <p className="logged-in-user">User: {loggedInUser.email}</p>}
+                
             </nav>
         </div>
     );
