@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  addToDatabaseCart,
-  getDatabaseCart
+    addToDatabaseCart,
+    getDatabaseCart
 } from "../../utilities/databaseManager";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
@@ -15,7 +15,7 @@ const Shop = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/products?search=" + search)
+    fetch("https://hidden-badlands-31862.herokuapp.com/products?search=" + search)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [search]);
@@ -23,7 +23,7 @@ const Shop = () => {
   useEffect(() => {
     const savedCart = getDatabaseCart();
     const productKeys = Object.keys(savedCart);
-    fetch("http://localhost:5000/productsByKeys", {
+    fetch("https://hidden-badlands-31862.herokuapp.com/productsByKeys", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(productKeys),

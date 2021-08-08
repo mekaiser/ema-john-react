@@ -29,7 +29,7 @@ const Review = () => {
     console.log(savedCart);
     const productKeys = Object.keys(savedCart);
 
-    fetch("http://localhost:5000/productsByKeys", {
+    fetch("https://hidden-badlands-31862.herokuapp.com/productsByKeys", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(productKeys),
