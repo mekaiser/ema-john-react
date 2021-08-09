@@ -2,7 +2,7 @@
 
 ![EmaJohn](https://raw.githubusercontent.com/mekaiser/ema-john-react/main/src/images/emajohn-github-cover.png)
 
-EmaJohn is a dynamic dynamic E-commerce website where users can buy a product by completing the online payment process.
+EmaJohn is a dynamic E-commerce website where users can buy a product by completing the online payment process.
 
 ## FEATURES
 
