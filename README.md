@@ -1,8 +1,8 @@
-# Ema John E-commerce
+# EmaJohn E-commerce
 
 ![EmaJohn](https://raw.githubusercontent.com/mekaiser/enfix-client/main/src/images/enfix.png)
 
-Ema John is a dynamic dynamic E-commerce website where users can buy a product by completing the online payment process.
+EmaJohn is a dynamic dynamic E-commerce website where users can buy a product by completing the online payment process.
 
 ## FEATURES
 
